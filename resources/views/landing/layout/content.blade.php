@@ -1,0 +1,2 @@
+<!-- header body -->
+@yield('content')
