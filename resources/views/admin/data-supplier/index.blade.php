@@ -12,7 +12,7 @@
                             <i class="mdi mdi-truck-delivery fs-4 me-2"></i>
                             <h5 class="mb-0">Data Supplier</h5>
                         </div>
-                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#addModal">
+                        <button class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#addModal" id="addSupplier">
                             <i class="mdi mdi-plus me-1"></i>Tambah Supplier
                         </button>
                     </div>
@@ -51,10 +51,10 @@
                                     <td>{{ $supplier->alamat_supplier }}</td>
                                     <td>{{ $supplier->nohp_supplier }}</td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ $supplier->id_supplier }}">
+                                        <button class="btn btn-warning btn-sm" id="editSupplier" data-bs-toggle="modal" data-bs-target="#editModal{{ $supplier->id_supplier }}">
                                             <i class="mdi mdi-pencil"></i> Edit
                                         </button>
-                                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $supplier->id_supplier }}">
+                                        <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ $supplier->id_supplier }}" id="deleteSupplier">
                                             <i class="mdi mdi-delete"></i> Hapus
                                         </button>
                                     </td>
@@ -83,7 +83,7 @@
                     <div class="mb-3">
                         <label class="form-label">Nama Supplier</label>
                         <input type="text" class="form-control @error('nama_supplier') is-invalid @enderror" 
-                               name="nama_supplier" value="{{ old('nama_supplier') }}" required>
+                               name="nama_supplier" value="{{ old('nama_supplier') }}" id="nama_supplier" required>
                         @error('nama_supplier')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -91,7 +91,7 @@
                     <div class="mb-3">
                         <label class="form-label">Alamat</label>
                         <textarea class="form-control @error('alamat_supplier') is-invalid @enderror" 
-                                  name="alamat_supplier" rows="3" required>{{ old('alamat_supplier') }}</textarea>
+                                  name="alamat_supplier" rows="3" id="alamat_supplier" required>{{ old('alamat_supplier') }}</textarea>
                         @error('alamat_supplier')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -99,7 +99,7 @@
                     <div class="mb-3">
                         <label class="form-label">No. HP</label>
                         <input type="text" class="form-control @error('nohp_supplier') is-invalid @enderror" 
-                               name="nohp_supplier" value="{{ old('nohp_supplier') }}" required>
+                               name="nohp_supplier" id="nohp_supplier" value="{{ old('nohp_supplier') }}" required>
                         @error('nohp_supplier')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -107,7 +107,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-info">
+                    <button type="submit" class="btn btn-info" id="simpanSupplier">
                         <i class="mdi mdi-content-save"></i> Simpan
                     </button>
                 </div>

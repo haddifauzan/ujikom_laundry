@@ -12,7 +12,7 @@
                 </div>
                 <div>
                     <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#filterSection">
-                        <i class="mdi mdi-filter"></i> Filter
+                        <i class="mdi mdi-filter"></i> Filter <i class="mdi mdi-chevron-down ms-3"></i>
                     </button>
                 </div>
             </div>

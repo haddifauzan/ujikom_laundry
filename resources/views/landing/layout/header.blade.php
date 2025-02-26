@@ -155,7 +155,7 @@
                         </li>
 
                         <li class="nav-item ms-xl-auto" id="loginButton">
-                            <a href="{{ route('member.login') }}" class="px-3 text-body-emphasis bg-body-secondary-hover border nav-link rounded-3 text-base leading-6 fw-semibold text-center">
+                            <a href="{{ route('member.login') }}" class="px-3 text-body-emphasis bg-body-secondary-hover border nav-link rounded-3 text-base leading-6 fw-semibold text-center" id="loginButton" value="Login">
                                 <i class="mdi mdi-login me-2"></i> Login for Member
                             </a>
                         </li>

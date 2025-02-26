@@ -20,54 +20,37 @@ class LandingController extends Controller
      */
     public function index()
     {
-        try {
-            // Fetch homepage settings
-            $settings = HomePageSettings::firstOrFail();
+        $settings = HomePageSettings::firstOrFail();
 
-            // Fetch active services (JenisLaundry)
-            $services = JenisLaundry::select([
-                'id_jenis',
-                'nama_jenis',
-                'deskripsi',
-                'gambar'
-            ])->limit(3)->get();
+        $services = JenisLaundry::select([
+            'id_jenis',
+            'nama_jenis',
+            'deskripsi',
+            'gambar'
+        ])->limit(3)->get();
 
-            // Fetch recent reviews with high ratings
-            $reviews = Review::select([
-                'name',
-                'rating',
-                'message'
-            ])
-            ->where('is_displayed', true) // Tambahkan kondisi is_displayed true
-            ->orderBy('rating', 'desc')
-            ->orderBy('created_at', 'desc')
-            ->limit(5)
-            ->get();
+        $reviews = Review::select([
+            'name',
+            'rating',
+            'message'
+        ])
+        ->where('is_displayed', true)
+        ->orderBy('rating', 'desc')
+        ->orderBy('created_at', 'desc')
+        ->limit(5)
+        ->get();
 
+        $suppliers = Supplier::select([
+            'id_supplier',
+            'nama_supplier'
+        ])->get();
 
-            // Fetch active suppliers
-            $suppliers = Supplier::select([
-                'id_supplier',
-                'nama_supplier'
-            ])->get();
-
-            // Return view with all necessary data
-            return view('landing.index', compact(
-                'settings',
-                'services',
-                'reviews',
-                'suppliers'
-            ));
-
-        } catch (\Exception $e) {
-            // Log the error
-            \Log::error('Error in landing page: ' . $e->getMessage());
-
-            // Return error view or redirect with error message
-            return redirect()
-                ->route('error')
-                ->with('error', 'Unable to load the page. Please try again later.');
-        }
+        return view('landing.index', compact(
+            'settings',
+            'services',
+            'reviews',
+            'suppliers'
+        ));
     }
 
     /**

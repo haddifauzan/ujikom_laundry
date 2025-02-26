@@ -33,7 +33,7 @@
                                 <form class="pt-3" method="POST" action="{{ route('login.submit') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required>
+                                        <input type="email" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" id="email" placeholder="Email" value="{{ old('email') }}" required>
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@
                                     </div>
                                     
                                     <div class="mt-3">
-                                        <button type="submit" class="btn d-grid btn-info btn-lg font-weight-medium auth-form-btn w-100">SIGN IN</button>
+                                        <button type="submit" class="btn d-grid btn-info btn-lg font-weight-medium auth-form-btn w-100" id="login-button">SIGN IN</button>
                                     </div>
                                     <div class="my-2 d-flex justify-content-between align-items-center">
                                         <div class="form-check form-check-info">

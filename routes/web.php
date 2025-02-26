@@ -29,15 +29,15 @@ use App\Http\Controllers\LaporanTransaksiController;
 use App\Http\Controllers\LogAktivitasController;
 use Illuminate\Support\Facades\Http;
 
-Route::get('/login-pegawai', [AuthController::class, 'showLoginForm'])->name('login');
-Route::get('/login-form', [AuthController::class, 'showLoginForm'])->name('login.form');
-Route::post('/login-submit', [AuthController::class, 'login'])->name('login.submit');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
 Route::get('/', [LandingController::class, 'index'])->name('landing');
 Route::get('/about-us', [LandingController::class, 'about'])->name('landing.about');
 Route::get('/services', [LandingController::class, 'services'])->name('landing.services');
 Route::post('/reviews/submit', [LandingController::class, 'submitReview'])->name('reviews.submit');
+
+Route::get('/login-pegawai', [AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/login-form', [AuthController::class, 'showLoginForm'])->name('login.form');
+Route::post('/login-submit', [AuthController::class, 'login'])->name('login.submit');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/member/login-modal', [AuthController::class, 'showLoginModal'])->name('member.login.modal');
 Route::get('/member/login', [AuthController::class, 'showMemberLoginForm'])->name('member.login');
